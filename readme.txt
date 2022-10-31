@@ -1,1 +1,2 @@
 Training KNN as a multiclass classification model for recommending a carrier.
+Using Tabular data.
