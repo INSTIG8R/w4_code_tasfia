@@ -8,4 +8,6 @@ Training KNN as a multiclass classification model for recommending a carrier usi
 6) Selecting the best performing model
 7) Testing for a single sample.
   a) mlScript.py file contains console testing using the KNN model fitted on all samples.
+      use play button or "python run mlScript.py"
   b) streamScript.py file contains Streamlit demo testing using the KNN model fitted on resampled data.
+      use "streamlit run streamScript.py"
