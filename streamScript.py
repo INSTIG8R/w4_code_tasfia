@@ -50,5 +50,5 @@ predicted = loaded_model.predict(
     [[accountName, senderCity, receiverCity, serviceType, leggingCost]])
 print("\nRecommending Carrier:", predicted[0].upper())
 
-if st.button('Submit'):
+if st.button('Recommend'):
     st.write("Recommending :   ", predicted[0].upper())

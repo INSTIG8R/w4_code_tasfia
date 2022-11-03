@@ -11,3 +11,6 @@ Training KNN as a multiclass classification model for recommending a carrier usi
       use play button or "python run mlScript.py"
   b) streamScript.py file contains Streamlit demo testing using the KNN model fitted on resampled data.
       use "streamlit run streamScript.py"
+
+
+Live Demo: https://tasfia37-w4-code-streamscript-1e2y2g.streamlitapp.com/
