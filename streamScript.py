@@ -46,9 +46,8 @@ serviceType = serviceDict[serviceType]
 print("accountName:", accountName, "\nsenderCity:", senderCity, "\nreceiverCity:",
       receiverCity, "\nserviceType:", serviceType, "\nleggingCost:", leggingCost)
 
-predicted = loaded_model.predict(
-    [[accountName, senderCity, receiverCity, serviceType, leggingCost]])
-print("\nRecommending Carrier:", predicted[0].upper())
-
 if st.button('Recommend'):
+    predicted = loaded_model.predict(
+        [[accountName, senderCity, receiverCity, serviceType, leggingCost]])
+    print("\nRecommending Carrier:", predicted[0].upper())
     st.write("Recommending :   ", predicted[0].upper())
