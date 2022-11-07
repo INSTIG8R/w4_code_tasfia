@@ -24,7 +24,7 @@ with open('serviceDict.pkl', 'rb') as f:
     serviceDict = pickle.load(f)
 
 
-loaded_model = pickle.load(open('KNN_ResampledModel.sav', 'rb'))
+loaded_model = pickle.load(open('catboost_model_weights.sav', 'rb'))
 
 #accountName = 'belgotex nz ltd'
 #senderCity = 'auckland'
@@ -36,7 +36,7 @@ accountName = st.selectbox("Account Name: ", options=accountDict)
 senderCity = st.selectbox("Sender City: ", options=cityDict)
 receiverCity = st.selectbox("Receiver City: ", options=cityDict)
 serviceType = st.selectbox("Service Type: ", options=serviceDict)
-leggingCost = float(st.number_input(label="Legging Cost"))
+#leggingCost = float(st.number_input(label="Legging Cost"))
 
 
 accountName = accountDict[accountName]
@@ -44,10 +44,10 @@ senderCity = cityDict[senderCity]
 receiverCity = cityDict[receiverCity]
 serviceType = serviceDict[serviceType]
 print("accountName:", accountName, "\nsenderCity:", senderCity, "\nreceiverCity:",
-      receiverCity, "\nserviceType:", serviceType, "\nleggingCost:", leggingCost)
+      receiverCity, "\nserviceType:", serviceType)
 
 if st.button('Recommend'):
     predicted = loaded_model.predict(
-        [[accountName, senderCity, receiverCity, serviceType, leggingCost]])
-    print("\nRecommending Carrier:", predicted[0].upper())
-    st.write("Recommending :   ", predicted[0].upper())
+        [[accountName, senderCity, receiverCity, serviceType]])
+    print("\nRecommending Carrier:", predicted[0][0].upper())
+    st.write("Recommending :   ", predicted[0][0].upper())
