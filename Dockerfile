@@ -7,7 +7,8 @@ RUN pip3 install --no-cache-dir --upgrade \
     virtualenv
 ENV VIRTUAL_ENV=/app/venv
 RUN virtualenv ${VIRTUAL_ENV}
-RUN . ${VIRTUAL_ENV}/bin/activate && pip install -r requirements.txt
+RUN . ${VIRTUAL_ENV}/bin/activate 
+RUN pip install --upgrade pip && pip install -r requirements.txt
 #RUN pip install --upgrade pip && pip install -r requirements.txt
 EXPOSE 80
 RUN mkdir ~/.streamlit
