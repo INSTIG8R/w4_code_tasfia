@@ -12,19 +12,19 @@ RUN apt-get update && apt-get install -y \
 
 USER appuser
 WORKDIR /home/appuser
-COPY . /home/appuser
 
 ENV VIRTUAL_ENV=/home/appuser/venv
 RUN virtualenv ${VIRTUAL_ENV}
 RUN . ${VIRTUAL_ENV}/bin/activate 
+
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-#RUN pip install --upgrade pip && pip install -r requirements.txt
+
 EXPOSE 80
-RUN mkdir ~/.streamlit
-RUN cp config.toml ~/.streamlit/config.toml
-RUN cp credentials.toml ~/.streamlit/credentials.toml
-WORKDIR /app
+#RUN mkdir ~/.streamlit
+#RUN cp config.toml ~/.streamlit/config.toml
+#RUN cp credentials.toml ~/.streamlit/credentials.toml
+#WORKDIR /app
 COPY run.sh /app
 ENTRYPOINT ["./run.sh"]
 #ENTRYPOINT ["streamlit", "run"]
