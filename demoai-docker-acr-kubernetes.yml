@@ -70,8 +70,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                **/kube-manifests/deployment.yml
-                **/kube-manifests/service.yml
+                $(Pipeline.Workspace)/kube-manifests/deployment.yml
+                $(Pipeline.Workspace)/kube-manifests/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
