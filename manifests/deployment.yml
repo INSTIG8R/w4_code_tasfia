@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: demoaiimage2 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoaiimage2
+  template:
+    metadata:
+      labels:
+        app: demoaiimage2 
+    spec:
+      containers:
+        - name: demoaiimage2 
+          image: demoaicr1.azurecr.io/demoaiimage2
+          ports:
+          - containerPort: 80
