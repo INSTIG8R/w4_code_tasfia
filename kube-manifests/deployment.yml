@@ -17,5 +17,6 @@ spec:
       containers:
         - name: streamlit
           image: demoaicr1.azurecr.io/streamlit
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
