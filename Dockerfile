@@ -13,12 +13,14 @@ RUN apt-get update && apt-get install -y \
 USER appuser
 WORKDIR /home/appuser
 
+RUN git clone https://github.com/INSTIG8R/w4_code_tasfia.git app
+
 ENV VIRTUAL_ENV=/home/appuser/venv
 RUN virtualenv ${VIRTUAL_ENV}
 RUN . ${VIRTUAL_ENV}/bin/activate 
 
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install -r app/requirements.txt
 
 EXPOSE 80
 #RUN mkdir ~/.streamlit
