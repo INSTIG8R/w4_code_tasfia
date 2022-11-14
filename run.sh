@@ -19,8 +19,7 @@ stopRunningProcess() {
 trap stopRunningProcess EXIT TERM
 
 source ${VIRTUAL_ENV}/bin/activate
-
-streamlit run ${HOME}/app/streamScript.py  &
+streamlit run ${HOME}/app/streamScript.py --server.port=8501 --server.address=20.47.78.179 &
 APP_ID=${!}
 
 wait ${APP_ID}
